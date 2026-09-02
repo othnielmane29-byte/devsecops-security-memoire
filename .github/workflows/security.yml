@@ -1,0 +1,12 @@
+name: Security Pipeline
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  security-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test du pipeline
+        run: echo "Le pipeline de securite fonctionne"
