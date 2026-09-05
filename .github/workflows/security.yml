@@ -13,5 +13,13 @@ jobs:
       - name: Recuperation du code
         uses: actions/checkout@v4
 
-      - name: Test du pipeline
-        run: echo "Le pipeline de securite fonctionne"
+      - name: Installation de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installation de Bandit
+        run: pip install bandit
+
+      - name: Analyse de securite avec Bandit
+        run: bandit -r . -x ./.git
